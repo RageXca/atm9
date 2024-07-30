@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-# only push to change
 FROM openjdk:17-buster
 
 LABEL version="0.3.0"
