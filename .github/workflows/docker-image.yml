@@ -42,7 +42,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ragexca/atm9
+          images: ghcr.io/${{ github.repository }}
 
       - name: Build and push Docker image
         id: push
@@ -52,8 +52,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-#          labels: ${{ steps.meta.outputs.labels }}
-          labels:  ragexca/atm9:latest
+          labels: ${{ steps.meta.outputs.labels }}
+
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
